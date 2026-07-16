@@ -1,9 +1,9 @@
-import { expect, test } from "vitest";
+import { describe, test } from "vitest";
+import { render } from "@testing-library/react";
+import TaskList from ".";
 
-function sum(a, b) {
-  return a + b;
-}
-
-test("test sum functionality", () => {
-  expect(sum(1, 2)).toBe(3);
+describe("TaskList component functions", () => {
+  test("renders TaskList component", () => {
+    render(<TaskList />);
+  });
 });
