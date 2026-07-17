@@ -55,11 +55,11 @@ describe("test TodoList component", () => {
   test("update category of todo", () => {
     const firstCategoryButton = screen.getAllByTestId("category-color")[0];
 
-    expect(firstCategoryButton).toHaveStyle("background-color: rgb(0, 0, 255)");
+    expect(firstCategoryButton.style.backgroundColor).toBe("blue");
 
     fireEvent.click(firstCategoryButton);
 
-    expect(firstCategoryButton).toHaveStyle("background-color: rgb(0, 128, 0)");
+    expect(firstCategoryButton.style.backgroundColor).toBe("green");
   });
 });
 
