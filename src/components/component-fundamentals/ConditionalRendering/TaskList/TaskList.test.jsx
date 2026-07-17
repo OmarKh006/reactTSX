@@ -5,19 +5,19 @@ import TaskList from ".";
 describe("TaskList component functions", () => {
   test("renders TaskList component", () => {
     render(<TaskList />);
-    expect(screen.getByText("Learn React")).toBeDefined();
-    expect(screen.getByText("Practice Props")).toBeDefined();
-    expect(screen.getByText("Take a Break")).toBeDefined();
+    expect(screen.getByText("Learn React")).toBeInTheDocument();
+    expect(screen.getByText("Practice Props")).toBeInTheDocument();
+    expect(screen.getByText("Take a Break")).toBeInTheDocument();
   });
 
   test("important tasks have a ! mark", () => {
     render(<TaskList />);
-    expect(screen.getByTestId("important")).toBeDefined();
+    expect(screen.getByTestId("important")).toBeInTheDocument();
   });
 
   test("completed tasks have the completed class", () => {
     render(<TaskList />);
-    expect(screen.getByText("Learn React").classList).toContain("completed");
+    expect(screen.getByText("Learn React")).toHaveClass("completed");
   });
 
   test("snapshot the component", () => {
