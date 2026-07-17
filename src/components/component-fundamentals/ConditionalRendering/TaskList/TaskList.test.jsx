@@ -19,4 +19,9 @@ describe("TaskList component functions", () => {
     render(<TaskList />);
     expect(screen.getByText("Learn React").classList).toContain("completed");
   });
+
+  test("snapshot the component", () => {
+    const { container } = render(<TaskList />);
+    expect(container).toMatchSnapshot();
+  });
 });

@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TaskList component functions > snapshot the component 1`] = `
+<div>
+  <ul
+    class="task-list"
+  >
+    <li
+      class="completed"
+    >
+      Learn React
+    </li>
+    <li
+      class=""
+    >
+      Practice Props
+    </li>
+    <li
+      class=""
+    >
+      Take a Break
+      <span
+        class="important"
+        data-testid="important"
+      >
+        !
+      </span>
+    </li>
+  </ul>
+</div>
+`;
