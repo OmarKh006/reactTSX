@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 
+interface Task {
+  id: string;
+  title: string;
+  completed: boolean;
+  important: boolean;
+}
 export default function TaskListV2() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchTasks = async () => {
     try {
@@ -11,7 +17,7 @@ export default function TaskListV2() {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/todos?_limit=3",
       );
-      const data = await response.json();
+      const data: Task[] = await response.json();
 
       const formattedTasks = data.map((task) => ({
         id: task.id,

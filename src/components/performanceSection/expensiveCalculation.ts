@@ -1,4 +1,4 @@
-function expensiveCalculation(number) {
+function expensiveCalculation(number: number) {
   console.time("Calculation Time");
   for (let i = 0; i < 1000000000; i++) {
     number += 1;
