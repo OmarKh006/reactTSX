@@ -1,6 +1,10 @@
-// Component showing props destructuring and default values
-// const Avatar = ({ className, size, username }) => {
-export default function Avatar({ className, size, username }) {
+export interface AvatarProps {
+  className: string;
+  size: number;
+  username: string;
+}
+
+export default function Avatar({ className, size, username }: AvatarProps) {
   return (
     <div
       className={className}

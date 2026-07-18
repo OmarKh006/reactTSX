@@ -1,12 +1,25 @@
 import UserProfile from "./UserProfile";
 
+interface UserData {
+  role: string;
+  level?: number;
+}
+
+interface UserCardProps {
+  username: string;
+  email?: string;
+  isAdmin?: boolean;
+  data?: UserData;
+  hobbies?: string[];
+}
+
 export default function UserCard({
   username,
   email = "no email provided",
   isAdmin = false,
   data = { role: "user" },
   hobbies = [],
-}) {
+}: UserCardProps) {
   return (
     <div className="user-card">
       <UserProfile username={username} size={60} />
