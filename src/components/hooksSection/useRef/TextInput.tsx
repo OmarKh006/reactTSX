@@ -15,7 +15,12 @@ export default function TextInput() {
 
   return (
     <div className="input-demo">
-      <input ref={inputRef} onBlur={handleBlur} onFocus={handleFocus} placeholder="Type something..." />
+      <input
+        ref={inputRef}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        placeholder="Type something..."
+      />
       <button onClick={handleFocus}>Focus Input</button>
       <p className="message">{message}</p>
     </div>
