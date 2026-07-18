@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+
+interface TodoState {
+  id: number;
+  text: string;
+  completed: boolean;
+  details: {
+    priority: string;
+    category: {
+      name: string;
+      color: string;
+    };
+  };
+}
 
 function TodoList() {
   const [todoInput, setTodoInput] = useState({ text: "", completed: false });
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState<TodoState[]>([
     {
       id: 1,
       text: "Learn React",
@@ -29,7 +42,7 @@ function TodoList() {
     },
   ]);
 
-  const handleAddTodo = (e) => {
+  const handleAddTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTodo = {
       id: Date.now(),
@@ -48,15 +61,7 @@ function TodoList() {
     setTodoInput({ ...todoInput, text: "" });
   };
 
-  const handleUpdateCategory = (todoId, newColor) => {
-    //You can use 'immer' instead
-    // setTodos(
-    //   produce((draft) => {
-    //     const todo = draft.find((todo) => todo.id === todoId);
-    //     todo.details.category.color = newColor;
-    //   })
-    // );
-
+  const handleUpdateCategory = (todoId: TodoState["id"], newColor: string) => {
     setTodos(
       todos.map((todo) =>
         todo.id === todoId
@@ -75,14 +80,14 @@ function TodoList() {
     );
   };
 
-  const handleToggle = (id) => {
+  const handleToggle = (id: TodoState["id"]) => {
     const UpdatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo,
     );
     setTodos(UpdatedTodos);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: TodoState["id"]) => {
     const NewTodos = todos.filter((todo) => todo.id !== id);
     setTodos(NewTodos);
   };
