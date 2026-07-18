@@ -14,10 +14,18 @@ import ReactMemoLesson from "./components/performanceSection/ReactMemoLesson";
 
 const LESSONS = [
   { id: "props", title: "Props", component: Props },
-  { id: "conditional", title: "Conditional Rendering", component: ConditionalRendering },
+  {
+    id: "conditional",
+    title: "Conditional Rendering",
+    component: ConditionalRendering,
+  },
   { id: "events", title: "Event Handling", component: EventHandling },
   { id: "state", title: "State", component: State },
-  { id: "state-objects", title: "State: Objects & Arrays", component: StateObjectsArrays },
+  {
+    id: "state-objects",
+    title: "State: Objects & Arrays",
+    component: StateObjectsArrays,
+  },
   { id: "context", title: "useContext", component: UseContext },
   { id: "ref", title: "useRef", component: UseRef },
   { id: "effect", title: "useEffect", component: UseEffect },
@@ -30,7 +38,9 @@ const LESSONS = [
 const App = () => {
   const [currentLessonId, setCurrentLessonId] = useState(LESSONS[0].id);
 
-  const CurrentComponent = LESSONS.find((lesson) => lesson.id === currentLessonId).component;
+  const CurrentComponent = LESSONS.find(
+    (lesson) => lesson.id === currentLessonId,
+  ).component;
 
   return (
     <div className="app">
